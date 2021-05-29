@@ -2,7 +2,7 @@
 
 Implementation of the smallest circumscribing *k*-gon algorithm presented in [ACY85].
 
-Given a convex *n*-gon and a number *k*, this algorithm can find the smallest *k*-gon that circumscribes the *n*-gon in $O(n^2 \cdot \log n \cdot k)$ time.
+Given a convex *n*-gon and a number *k*, this algorithm can find the smallest *k*-gon that circumscribes the *n*-gon in O(*n*<sup>2</sup> log*n* *k*) time.
 
 I mostly use it for [Particle Trimming](http://www.humus.name/index.php?ID=266), but you may find it useful in other places. Usage can be found in <example/main.cpp>.
 

@@ -37,7 +37,7 @@ namespace ayw
 
 	// calculate the intersection of two non-collinear segments [a, b] and [c, d]
 	// return parameters(s, t) so that a + ab * s = c + cd * t;
-	float2 intersection(const float2 &a, const float2 &b, const float2 &c, const float2 &d)
+	static float2 intersection(const float2 &a, const float2 &b, const float2 &c, const float2 &d)
 	{
 		float2 ab = b - a, cd = d - c, ac = c - a;
 		float num = cross(ab, ac);

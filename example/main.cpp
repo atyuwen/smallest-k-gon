@@ -8,6 +8,7 @@
 #include <cassert>
 #include <random>
 #include <iostream>
+#include <ctime>
 
 #include "../include/convex.h"
 
@@ -19,6 +20,7 @@ static float random01()
 int main()
 {
 	// Generate M points randomly.
+	srand(time(nullptr));
 	const int M = 20;
 	std::vector<ayw::float2> points(M);
 	for (int i = 0; i < M; ++i)
@@ -29,7 +31,7 @@ int main()
 	// Build convex hull from those points.
 	ayw::convex n_gon;
 	n_gon.build(points.begin(), points.end());
-	std::cout << "n-gon. n = " << n_gon.vertices.size() << ", area = " << n_gon.area();
+	std::cout << "n-gon. n = " << n_gon.vertices.size() << ", area = " << n_gon.area() << '\n';
 
 	for (int k = 8; k >=4; --k)
 	{
@@ -43,14 +45,15 @@ int main()
 			if (!k_gon.contains(points[i]))
 			{
 				// Should not happens.
-				std::cout << "error occurred.";
+				std::cout << "error occurred. \n";
 			}
 		}
 
-		std::cout << "k-gon. k = " << k << ", area = " << k_gon.area();
+		std::cout << "--------------------------------------------\n";
+		std::cout << "k-gon. k = " << k << ", area = " << k_gon.area() << '\n';
 
 		// Clip the k-gon to [0, 1] rect.
 		k_gon.clip();
-		std::cout << "k-gon clipped. v = " << k_gon.vertices.size() << ", area = " << k_gon.area();
+		std::cout << "  clipped. v = " << k_gon.vertices.size() << ", area = " << k_gon.area() << '\n';
 	}
 }
